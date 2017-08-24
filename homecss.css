@@ -1,0 +1,44 @@
+#shopCart {
+
+    background: rgba(255, 255, 255, .9);
+}
+
+html {
+    background: url(cartbg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+body {
+
+    background: none;
+
+}
+
+#cart {
+    margin-top: 150px;
+
+}
+
+#header {
+    color:cadetblue;
+    text-align: center;
+
+}
+
+.navbar {
+    background: none;
+}
+#sumup {
+    background: rgba(255, 255, 255, .9);
+
+    position: relative;
+    bottom: 18.5%;
+    max-width: 1050px;
+    text-align: right;
+}
+
+tbody {
+    text-align: center;
+}

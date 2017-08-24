@@ -1,0 +1,56 @@
+#homePageContainer {
+    margin-top: 200px;
+    background: rgba(255, 255, 255, .9);
+    border-radius: 5px;
+    width: 400px;
+    alignment: center;
+}
+
+html {
+    background: url(background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+body {
+
+    background: none;
+
+}
+
+#logInForm {
+
+    display: none;
+}
+
+
+.toggleForms {
+
+    font-weight:;
+
+}
+
+#diary {
+    margin-top: 100px;
+    width: 50%;
+    height:50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: 19px;
+
+}
+
+p1 {
+    text-align: center;
+}
+.container {
+    text-align: center;
+}
+

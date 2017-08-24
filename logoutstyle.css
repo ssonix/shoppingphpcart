@@ -1,0 +1,22 @@
+
+body {
+    background: url(cartbg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+#popup {
+    position: relative;
+    text-align: center;
+    margin-top: 300px;
+    max-width: 700px;
+
+}
+
+#clue {
+    position:absolute;
+    bottom: 5%;
+    right:5%;
+}
