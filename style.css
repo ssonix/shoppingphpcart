@@ -4,6 +4,7 @@
     border-radius: 5px;
     width: 400px;
     alignment: center;
+    padding-bottom: 10px;
 }
 
 html {
@@ -54,3 +55,7 @@ p1 {
     text-align: center;
 }
 
+.cart {
+    padding-bottom: 60px;
+
+}

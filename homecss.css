@@ -13,6 +13,7 @@ html {
 body {
 
     background: none;
+    padding-bottom: 60px;
 
 }
 
@@ -42,3 +43,34 @@ body {
 tbody {
     text-align: center;
 }
+
+.photos {
+    width: 100%;
+    height: auto;
+}
+
+h2 {
+    text-align: center;
+    color: cadetblue;
+
+}
+#cart{
+
+    background: rgba(255, 255, 255, .9);
+    padding-bottom: 60px;
+
+}
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, .9);
+
+
+}
+.photos {
+    border-radius: 2%;
+    padding:1px;
+    border:1px solid #021a40;
+    background-color: #021a40;
+
+}
+
