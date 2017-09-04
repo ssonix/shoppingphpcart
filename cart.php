@@ -68,7 +68,6 @@
                         <button type="button" class="btn btn-danger">usuń</button>
                     </td>
                 </tr>
-
             </table>
         </div>
     </div>

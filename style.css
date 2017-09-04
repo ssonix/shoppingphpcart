@@ -22,26 +22,6 @@ body {
 
 }
 
-#logInForm {
-
-    display: none;
-}
-
-
-.toggleForms {
-
-    font-weight:;
-
-}
-
-#diary {
-    margin-top: 100px;
-    width: 50%;
-    height:50%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 h1 {
     text-align: center;
     font-size: 19px;

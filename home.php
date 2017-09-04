@@ -42,89 +42,49 @@ include "connection.php";
     </div>
 </nav>
 
-<form action="index.php" method="post">
-    imię:<br />
-    <input type="text" name="imie" /><br />
-    e-mail:<br />
-    <input type="text" name="email" /><br />
-    <input type="submit" value="dodaj" />
-</form>
 
 
-<div class="container table-bordered">
-    <h1 class="header">Wybierz produkt:</h1>
-    <p></p>
-    <div class="row">
+    <div class="container table-bordered">
+        <h1 class="header">Wybierz produkt:</h1>
+        <p></p>
+        <div class="row">
+                    <?php
+                    $query = "SELECT * FROM `products` ORDER BY id ASC";
+                    $result = mysqli_query($link, $query);
+                    if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_array($result)) {
+                    ?>
+            <div class="col-md-4 col-sm-6">
+                <form method="post" >
+                    <div>
+                        <img src="<?php echo $row["photo"]; ?>" class="photos">
+                        <h5 class="text-info"><?php echo $row["name"] ?></h5>
+                        <h5 class="text-danger"><?php echo $row["price"] ?></h5>
+                        <input type="text" name="quantity" class="form-control" value="1">
+                        <input type="hidden" name="hidden_name" value="<?php echo $row["name"] ?>">
+                        <input type="hidden" name="hidden_price" value="<?php echo $row["price"] ?>">
+                        <input type="hidden" name="hidden_id" value="<?php echo $row["id"] ?>">
+                        <input type="submit" name="add" class="btn btn-default" value="Dodaj do koszyka">
+                    </div>
+                </form>
+            </div>
+                    <?php
+                        }
+                     }
+                     ?>
+         </div>
+
         <?php
-        $query = "SELECT * FROM `products` ORDER BY id ASC";
-        $result = mysqli_query($link, $query);
-        if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_array($result)) {
+
+        if(isset($_POST['add'])){
+            $sql = "INSERT INTO `cart_products` (`product_id`, `quantity`, `price`)
+      VALUES(" . intval($_POST["hidden_id"]) . ", " . intval($_POST["quantity"]) . ", " . intval($_POST["hidden_price"]) . ")";
+            $result = mysqli_query($link, $sql);
+        };
+        var_dump($_POST)
+
+
         ?>
-        <div class="col-md-4 col-sm-6">
-            <form method="post" action="calculate.php?action=add&id=<?php echo $row["id"]; ?>">
-                <div>
-                    <img src="<?php echo $row["photo"]; ?>" class="photos">
-                    <h5 class="text-info"><?php echo $row["name"] ?></h5>
-                    <h5 class="text-danger"><?php echo $row["price"] ?></h5>
-                    <input type="text" name="quantity" class="form-control" value="1">
-                    <input type="hidden" name="hidden_name" value="<?php echo $row["name"] ?>">
-                    <input type="hidden" name="hidden_price" value="<?php echo $row["price"] ?>">
-                    <input type="submit" name="add" class="btn btn-default" value="Dodaj do koszyka">
-                </div>
-            </form>
-        </div>
-    <?php
-        }
-     }
-
-
-
-        INSERT INTO `test`(`name`, `price`) VALUES ([value-1],[value-2])
-?>
-
-    </div>
-
-    <div style="clear:both"></div>
-    <div class="table-responsive" id="cart">
-        <h2>Szczegóły zamówienia</h2>
-
-        <table class="table table-bordered">
-        <tr>
-            <th width="40%">Nazwa produktu</th>
-            <th width="10%">Ilość</th>
-            <th width="20%"> Cena</th>
-            <th width="15%">Suma</th>
-            <th width="5%">Akcja</th>
-        </tr>
-        <?php
-        if(!empty($_SESSION["cart"]))
-        {
-            $total = 0;
-            foreach ($_SESSION["cart"] as $keys => $values) {
-                ?>
-                <tr>
-                    <td><?php echo $values["item_name"]; ?></td>
-                    <td><?php echo $values["item_quantity"] ?></td>
-                    <td>zł <?php echo $values["product_price"]; ?></td>
-                    <td>zł <?php echo number_format($values["item_quantity"] * $values["product_price"], 2); ?></td>
-                    <td><a href="home.php?action=delete&id=<?php echo $values["product_id"]; ?>"<span class="text-danger">X</span></a></td>
-                </tr>
-                <?php
-                $total = $total + ($values["item_quantity"] * $values["product_price"]);
-            }
-                ?>
-                <tr>
-                    <td colspan="3" align="right"> W sumie</td>
-                    <td align="right"><?php echo number_format($total,2); ?> zł</td>
-                    <td> </td>
-                </tr>
-        <?php
-            }
-        ?>
-    </table>
-    </div>
-</div>
 
 
 <!--koszyk-->
